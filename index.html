@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypothetical Visa Officer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3498db; /* Updated background color */
+            color: #fff; /* Updated text color */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #greeting {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #message {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        #moreInfo {
+            display: none;
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        #showInfoBtn {
+            background-color: #2ecc71; /* Button color */
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="greeting"></div>
+    <div id="message"></div>
+
+    <button id="showInfoBtn" onclick="toggleInfo()">Show More Info</button>
+    <div id="moreInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</div>
+
+    <script>
+        function displayGreeting() {
+            var greetingElement = document.getElementById('greeting');
+            var messageElement = document.getElementById('message');
+
+            greetingElement.innerText = 'Hi Babita,';
+            messageElement.innerText = 'I am your hypothetical visa officer.';
+        }
+
+        function toggleInfo() {
+            var moreInfoElement = document.getElementById('moreInfo');
+            var btnElement = document.getElementById('showInfoBtn');
+
+            if (moreInfoElement.style.display === 'none') {
+                moreInfoElement.style.display = 'block';
+                setTimeout(function () {
+                    moreInfoElement.style.opacity = '1';
+                    moreInfoElement.style.transform = 'translateY(0)';
+                }, 50);
+                btnElement.innerText = 'Hide Info';
+            } else {
+                moreInfoElement.style.opacity = '0';
+                moreInfoElement.style.transform = 'translateY(20px)';
+                setTimeout(function () {
+                    moreInfoElement.style.display = 'none';
+                }, 500);
+                btnElement.innerText = 'Show More Info';
+            }
+        }
+
+        setTimeout(displayGreeting, 1000);
+    </script>
+</body>
+</html>
